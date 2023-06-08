@@ -1,0 +1,26 @@
+{% extends 'base_admin.html' %}
+{% block content %}
+    <h1>Admin Product List</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manufacture Date</th>
+            <th>Expiry Date</th>
+            <th>Rate per unit</th>
+            <th>Unit</th>
+            <th>Section ID</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+            <td>{{ product[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}

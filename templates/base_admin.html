@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='add_product.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='create_section.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit_section.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='section_list_admin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit_product.css') }}">
+    <style>
+        /* Add your additional CSS styles here */
+        h1 {
+            text-align: center;
+        }
+
+        .admin-info {
+            text-align: center;
+        }
+
+        .logged-in-admin {
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-button {
+            margin-right: 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .home-button:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grocery Store</h1>
+    <div class="admin-info">
+        {% if session['first_name'] %}
+            <div class="logged-in-admin">Logged in as: {{ session['first_name'] }}</div>
+            <div class="button-container">
+                <!-- Add home button -->
+                <a class="home-button" href="/admin/admin_dashboard">&#127968;</a>
+                {% block logout_button %}
+                    <a class="logout-button" href="/admin/logout">Log Out</a>
+                {% endblock %}
+            </div>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

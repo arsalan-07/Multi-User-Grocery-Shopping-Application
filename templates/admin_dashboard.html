@@ -1,0 +1,12 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+    <h1>Welcome to the Admin Dashboard</h1>
+
+    <div class="admin-dashboard">
+        <a href="{{ url_for('admin.add_product') }}">Add Product</a>
+        <a href="{{ url_for('admin.create_section') }}">Add Section</a>
+        <a href="{{ url_for('admin.section_list') }}">View Section</a>
+        <a href="{{ url_for('admin.product_list') }}">View Product List</a>
+    </div>
+{% endblock %}

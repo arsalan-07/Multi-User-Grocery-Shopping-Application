@@ -1,0 +1,12 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+    <h1>Create Section</h1>
+    <form action="/admin/create_section" method="POST">
+        <label for="id">Section Id:</label>
+        <input type="number" id="id" name="id" required><br>
+        <label for="section_name">Section Name:</label>
+        <input type="text" id="section_name" name="section_name" required><br><br>
+        <input type="submit" value="Create Section">
+    </form>
+{% endblock %}

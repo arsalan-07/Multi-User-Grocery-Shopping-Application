@@ -1,0 +1,32 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+    <h1>Add Product</h1>
+    <form method="POST" action="/admin/add_product">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br>
+
+        <label for="productname">Name:</label>
+        <input type="text" id="productname" name="productname" required><br>
+
+        <label for="manufacture_date">Manufacture Date:</label>
+        <input type="date" id="manufacture_date" name="manufacture_date" required><br>
+
+        <label for="fexpiry_date">Expiry Date:</label>
+        <input type="date" id="fexpiry_date" name="fexpiry_date" required><br>
+
+        <label for="rate">Rate per unit:</label>
+        <input type="number" id="rate" name="rate" step="0.01" required><br>
+
+        <label for="unit">Unit:</label>
+        <select id="unit" name="unit" required>
+            <option value="Kg">Kg</option>
+            <option value="Litre">Litre</option>
+        </select><br>
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" required><br>
+        <label for="section_id">Section Id:</label>
+        <input type="number" id="section_id" name="section_id" required><br>
+        <input type="submit" value="Add Product">
+    </form>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user_dashboard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='section_list_user.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='product_list_user.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='products_by_section_user.css') }}">
+    <style>
+        /* Add your additional CSS styles here */
+
+        .logged-in-user {
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .home-button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grocery Store</h1>
+    <div class="user-info">
+        {% if session['first_name'] %}
+            <div class="logged-in-user">Logged in as: {{ session['first_name'] }}</div>
+            <div class="button-container">
+                <!-- Add home button -->
+                <a class="home-button" href="/user/user_dashboard">&#127968;</a>
+                {% block logout_button %}
+                    <a class="logout-button" href="/user/logout">Log Out</a>
+                {% endblock %}
+            </div>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>User Product List</h1>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Manufacture Date</th>
+            <th>Expiry Date</th>
+            <th>Rate per unit</th>
+            <th>Unit</th>
+            <th>Section ID</th>
+            <th>Action</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+            <td>{{ product[6] }}</td>
+            <td><a href="{{ url_for('user.add_to_cart', product_id=product[0]) }}">Buy</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('user.user_orders') }}">Your Orders</a>
+    <br>
+    <br>
+{% endblock %}

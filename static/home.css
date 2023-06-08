@@ -1,0 +1,49 @@
+body {    
+  min-height: 95.1vh;
+  min-width: 90%;
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url('background-image.jpg'); /* Replace 'background-image.jpg' with the actual path to your background image */
+  background-position: relative;
+  background-size: cover;
+  position: relative;;
+  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.user-btn,
+.admin-btn {
+  display: block;
+  margin: 105px auto;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.user-btn {
+  background-color: #375c85;
+}
+
+.admin-btn {
+  background-color: #da6672;
+}
+
+.user-btn:hover,
+.admin-btn:hover {
+  opacity: 0.8;
+}

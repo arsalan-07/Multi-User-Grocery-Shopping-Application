@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>User Products by Section CE</h1>
+    <h2>{{ section_name }}</h2>
+    
+    <form method="post" action="{{ url_for('user.search_product_list_by_section', section_id=section_id) }}">
+        <input type="text" name="search_query" placeholder="Search bar">
+        <button type="submit">Search</button>
+    </form>
+    
+
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Manufacture Date</th>
+            <th>Expiry Date</th>
+            <th>Rate per Unit</th>
+            <th>Unit</th>
+            <th>Action</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>{{ product[4] }}</td>
+            <td>{{ product[5] }}</td>
+            <td>
+                {% if product[6] is not none and product[6] > 0 %}
+                <form method="post" action="{{ url_for('user.add_to_cart', product_id=product[0]) }}">
+                    <button type="submit">Add to Cart</button>
+                </form>
+                {% else %}
+                    <span>Out of Stock</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('user.user_orders') }}">Your Orders</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Dashboard</h1>
+
+    <div class="user-dashboard">
+        <a href="{{ url_for('user.section_list') }}">View Section</a>
+        <a href="{{ url_for('user.user_product_list') }}">View Product List</a>
+        <a href="{{ url_for('user.user_orders') }}">Your Orders</a>
+    </div>
+{% endblock %}

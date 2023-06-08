@@ -1,0 +1,33 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+    <h1>Edit Product</h1>
+
+    <form method="POST" action="/admin/edit_product/{{ product[0] }}">
+        <label for="productname">Product Name:</label>
+        <input type="text" name="productname" value="{{ product[1] }}" required><br>
+
+        <label for="manufacture_date">Manufacture Date:</label>
+        <input type="date" name="manufacture_date" value="{{ product[2] }}" required><br>
+
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="date" name="fexpiry_date" value="{{ product[3]}}" required><br>
+
+        <label for="rate_per_unit">Rate per unit:</label>
+        <input type="text" name="rate_per_unit" value="{{ product[4] }}" required><br>
+
+        <label for="unit">Unit:</label>
+        <select id="unit" name="unit" value="{{ product[5] }}" required>
+            <option value="Kg">Kg</option>
+            <option value="Litre">Litre</option></select><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="text" name="quantity" value="{{ product[6] }}" required><br>
+
+        <label for="section_id">Section ID:</label>
+        <input type="text" name="section_id" value="{{ product[7] }}" required><br>
+
+
+        <button type="submit">Update</button>
+    </form>
+{% endblock %}

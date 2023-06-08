@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Your Orders</h1>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user_orders.css') }}">
+    
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Total Amount to be paid: ₹
+        {{ total_amount }}
+    </h3>
+{% endblock %}

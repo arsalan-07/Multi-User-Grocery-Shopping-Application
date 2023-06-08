@@ -1,0 +1,27 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Admin Section List</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Section Name</th>
+                <th>Action</th>
+            </tr>
+            {% for section in sections %}
+            <tr>
+                <td>{{ section[0] }}</td>
+                <td><a href="{{ url_for('admin.products_by_section', section_id=section[0]) }}">{{ section[1] }}</a></td>
+                <td>
+                    <a class="edit-button" href="{{ url_for('admin.edit_section', section_id=section[0]) }}">Edit</a>
+                    <a class="delete-button" href="{{ url_for('admin.delete_section', section_id=section[0]) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>    
+        <a class="add-section-button" href="{{ url_for('admin.create_section') }}">Add Section</a>
+    </div>
+{% endblock %}
+

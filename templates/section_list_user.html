@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>User Section List</h1>
+    <table>
+        <tr>
+            <th>Section ID</th>
+            <th>Name</th>
+        </tr>
+        {% for section in sections %}
+        <tr>
+            <td>{{ section[0] }}</td>
+            <td><a href="{{ url_for('user.products_by_section', section_id=section[0]) }}">{{ section[1] }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('user.user_orders') }}">Your Orders</a>
+    <br>
+    <br>
+{% endblock %}
